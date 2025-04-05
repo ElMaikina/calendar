@@ -17,7 +17,7 @@ DAY = 24 * HOUR
 MONTH = 30 * DAY
 
 # Variable que indica los dias en anticipacion a las tareas
-DIAS = 14
+DIAS = 10
 
 # Se conecta a los servicios de Google para establecer una conexion
 def get_calendar_service():
@@ -63,7 +63,7 @@ def export_events_to_markdown(n_days=7, output_file='eventos.md'):
         if not events:
             f.write("No hay eventos programados.\n")
 
-        f.write(f"| Estado | Nombre | Fecha/s | Tiempo restante | Estado |\n")
+        f.write(f"| Estado | Nombre | Fecha/s | Tiempo restante | Detalles |\n")
         f.write(f"| ---- | ---- | ---- | ---- | ---- |\n")
         for event in events:
             start = event['start'].get('dateTime', event['start'].get('date'))
