@@ -5,6 +5,7 @@ import os
 import pickle
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
+from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
 
 # Si modificas este alcance, elimina el archivo token.pickle
@@ -68,4 +69,4 @@ def export_events_to_markdown(n_days=7, output_file='eventos.md'):
     print(f"Exportado archivo a: \'{output_file}\'")
 
 # Ejecutar
-export_events_to_markdown(n_days=14)
+export_events_to_markdown(n_days=30)
