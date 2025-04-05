@@ -16,6 +16,9 @@ HOUR = 60 * MINUTE
 DAY = 24 * HOUR
 MONTH = 30 * DAY
 
+# Variable que indica los dias en anticipacion a las tareas
+DIAS = 14
+
 # Se conecta a los servicios de Google para establecer una conexion
 def get_calendar_service():
     creds = None
@@ -54,6 +57,7 @@ def export_events_to_markdown(n_days=7, output_file='eventos.md'):
         f.write(f" _Documentos_.\n\n")
         f.write(f"* 📆 Fecha actual: {date.today()}\n")
         f.write(f"* 🧮 Tareas en total: {len(events)}\n")
+        f.write(f"* ⏳️ Dias de anticipacion: {DIAS}\n")
         f.write(f"## ✔️ Tareas por hacer\n\n")
         f.write(f"Tareas ordenadas por las mas cercanas\n\n")
         if not events:
@@ -69,4 +73,4 @@ def export_events_to_markdown(n_days=7, output_file='eventos.md'):
     print(f"Exportado archivo a: \'{output_file}\'")
 
 # Ejecutar
-export_events_to_markdown(n_days=30)
+export_events_to_markdown(n_days=DIAS)
